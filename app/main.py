@@ -36,7 +36,7 @@ except Exception:
 
 @app.get("/") #   "/" url root path
 def root():
-    return {"Version": "Api V.1.0.2 "}
+    return {"Version": "Api V.1.0.2", "For more info": "type /docs"}
 
 @app.get(f"/{measurement_}")
 def get_posts():
