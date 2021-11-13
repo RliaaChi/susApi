@@ -51,7 +51,7 @@ def create_posts(post:Post):
     jsonBod = []
     jsonBod.append(post_dict)
     client.write_points(jsonBod)
-    return {"data": jsonBod}  
+    return {"data": jsonBod, "data": "Successfully Created!"}  
 
 @app.get("/posts/{id}")
 def get_posts(id: str, resp: Response):
@@ -73,4 +73,10 @@ def del_posts(id: str, type: str):
                             detail=f"Post with id #{id} and type {type} was not found!")
     client.delete_series(tags={"id": f"{id}","type": f"{type}"})
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+
+
+
+
 
