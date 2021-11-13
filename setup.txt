@@ -1,0 +1,13 @@
+[Unit]
+Description=susApi 
+After=network.target
+
+[Service]
+User=root
+Group=pi
+WorkingDirectory=/home/pi/IOTstack/app/source/
+Environment="PATH=/usr/local/bin"
+ExecStart=/usr/local/bin/gunicorn -w 1 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
